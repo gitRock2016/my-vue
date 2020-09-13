@@ -1,0 +1,31 @@
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>Hello Vue</title>
+    <link rel="stylesheet" href="./css/my-vue.css" />
+  </head>
+  <body>
+    <div id="todo">
+      <h2>todo list</h2>
+      <!-- preventでフォームから自動でさぶみったとされるのを防ぐらしいが、そもそも自動で動かないので問題なさそう -->
+      <form v-on:submit.prevent>
+        <input type="text" v-model="newItem" />
+        <button v-on:click="addItem">ADD</button>
+      </form>
+
+      <ul>
+        <li v-for="todo in todos">
+          <input type="checkbox" v-model="todo.isDone" />
+          {{ todo.item }}
+        </li>
+      </ul>
+
+      デバッグ
+      <pre>{{$data}}</pre>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <!-- vueを読み込んでから読み込む -->
+    <script src="./js/my-vue.js"></script>
+  </body>
+</html>
